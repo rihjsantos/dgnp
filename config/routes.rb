@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-	root 'site#index'
+	root 'site#site'
 
-	namespace :admin do
-		resources :category, :entry, :tag, :user, :suggestion
-	end
+  authenticate :user do
+    scope "/admin" do
+      resources :category, :entry, :tag, :user, :suggestion
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

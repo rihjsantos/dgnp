@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin/dashboard#index'
 
-	root 'site#home'
+	root 'site/site#index'
 
   get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
+  post   'access'  => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
 

@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get 'admin' => 'admin/dashboard#index'
 
-	root 'site#site'
+	root 'site#home'
 
-  authenticate :user do
-    scope "/admin" do
-      resources :category, :entry, :tag, :user, :suggestion
-    end
-  end
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

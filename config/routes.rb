@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'admin' => 'admin/dashboard#index'
-
+  # Site root
 	root 'site/site#index'
+  # Admin root
+  get 'admin' => 'admin#index'  
 
-  get    'login'   => 'sessions#new'
-  post   'access'  => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  # Login actions
+  get 'login'   => 'sessions#new'
+  post 'access'  => 'sessions#create'
+  get 'logout'  => 'sessions#destroy'
   resources :users
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

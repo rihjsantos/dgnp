@@ -63,83 +63,36 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="sidebar-icon fa fa-magnet"></i>
-                            <span class="sidebar-text">Interface</span>
+                            <i class="sidebar-icon fa fa-table"></i>
+                            <span class="sidebar-text">Cadastros</span>
                         </a>
                         <ul class="sidebar-child animated flipInY">
                             <li>
                                 <a href="grid-system.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Grid System</span>
+                                    <span class="sidebar-text">Categorias</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="typography.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Typography</span>
+                                    <span class="sidebar-text">Tags</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="buttons.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Buttons</span>
+                                    <span class="sidebar-text">Verbetes</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="icons.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Icons</span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="modals.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Modals</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tooltips-popovers.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Tooltips & Popovers</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="alerts-callouts.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Alerts & Callouts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="progress-bars.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Progress Bars</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="labels-badge.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Labels & Badge</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="navs-navbar.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Navs & Navbar</span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="animated.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Animated</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="loaders.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Loaders</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="helper-classes.html" data-pjax=".content-body">
-                                    <span class="sidebar-text">Helper</span>
-                                </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>                                              
                 </ul>
             </aside>
 
             <div class="content">
+            <% if logged_in? %>
+              "aaaaaaaaaaaaaaa"
+            <% else %>
+              "bbbbbbbbbbbbbbbbb"
+            <% end %>
                 <%= yield %>
             </div>
         </section>

@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'suggetions/index'
+  end
+
+  namespace :admin do
+  get 'entries/index'
+  end
+
+  namespace :admin do
+  get 'tags/index'
+  end
+
   # Site root
 	root 'site/site#index'
   # Admin root
@@ -9,8 +21,13 @@ Rails.application.routes.draw do
   get 'login'   => 'sessions#new'
   post 'access'  => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
+  
   resources :users
   
+  namespace :admin do
+    resources :categories, :entries, :tags, :suggestions
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

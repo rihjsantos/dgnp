@@ -6,11 +6,14 @@ class SessionsController < ApplicationController
  	def new
  	end
 
+ 	def current_user
+  		User.find_by(id: session[:user_id])
+	end
+
  	# Authenticate the user
  	def create
  		user = User.find_by(email: params[:session][:email].downcase)
-	    if user && user.authenticate(params[:session][:password])
-			# SessionsHelper method
+	    if user && user.authenticate(params[:session][:password])			
 			log_in user
       		redirect_to :controller => 'admin', :action => 'index'
 	    else

@@ -1,9 +1,11 @@
 class Admin::CategoriesController < AdminController
-	def index
+	def index		
+		@categories = Category.all
 		render 'admin/category/index'
 	end
 
 	def new		
+		@category = Category.new
 		render 'admin/category/new'
 	end
 
@@ -11,21 +13,23 @@ class Admin::CategoriesController < AdminController
 	    @category = Category.new(category_params)
 		 
 		if @category.save
-			redirect_to 'admin/categories'
+			redirect_to :controller => 'admin/categories', :action => 'index'
 	    else
+			flash.now[:notice] = "Erro"
 	    	render 'new'
 		end
 	end
 
 	def edit
 		@category = Category.find(params[:id])
+		render 'admin/category/edit'
 	end
 
 	def update
 		@category = Category.find(params[:id])
 
 		if @category.update(category_params)
-			redirect_to 'admin/categories'
+			redirect_to :controller => 'admin/categories', :action => 'index'
 		else
 			render 'edit'
 		end

@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'suggetions/index'
-  end
-
-  namespace :admin do
-  get 'entries/index'
-  end
-
-  namespace :admin do
-  get 'tags/index'
-  end
-
-  # Site root
+   # Site root
 	root 'site/site#index'
   # Admin root
   get 'admin' => 'admin#index'  
@@ -25,7 +13,9 @@ Rails.application.routes.draw do
   resources :users
   
   namespace :admin do
-    resources :categories, :entries, :tags, :suggestions
+    with_options(except: [:show]) do
+      resources :categories, :entries, :tags, :suggestions
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

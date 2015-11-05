@@ -1,17 +1,23 @@
 <div class="content-control">
 	<ul class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="active">Verbetes</li>
+        <li class="active">Palavra</li>
     </ul>
 </div>
 
 <div class="content-body">
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<button class="btn btn-inverse" onclick="document.location.href='/admin/entries/new'">Incluir palavra</button>
+		</div>
+	</div>
+	<br>
 	<div id="panel-datatables" class="panel panel-default">
 		<table data-source="data-sample/datatables.json" data-page="bs_four_button" class="datatable table table-hover table-bordered">
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Verbete</th>
+					<th>Palavra</th>
 					<th>Descrição</th>
 					<th>Descrição cômica</th>
 					<th>Categoria</th>
@@ -21,7 +27,21 @@
 			</thead>
 
 			<tbody>
-				
+				<% @entries.each do |entry| %>
+					<tr>
+						<td><%= entry.id %></td>
+						<td><%= entry.entry %></td>
+						<td><%= entry.description %></td>
+						<td><%= entry.funny_description %></td>
+						<td><%= entry.category.description %></td>
+						<td>
+							<% entry.tags.each do |tag| %>
+								<%= tag.description %>
+							<% end %>
+						</td>
+						<td></td>						
+					</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>

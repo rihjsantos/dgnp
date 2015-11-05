@@ -6,6 +6,13 @@
 </div>
 
 <div class="content-body">
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<button class="btn btn-inverse" onclick="document.location.href='/admin/categories/new'">Incluir categoria</button>
+		</div>
+	</div>
+	<br>
+
 	<div id="panel-datatables" class="panel panel-default">
 		<table data-source="data-sample/datatables.json" data-page="bs_four_button" class="datatable table table-hover table-bordered">
 			<thead>
@@ -17,7 +24,13 @@
 			</thead>
 
 			<tbody>
-				
+				<% @categories.each do |category| %>
+					<tr>
+						<td><a href="/admin/categories/<%= category.id %>/edit"><%= category.id %></a></td>
+						<td><%= category.description %></td>						
+						<td></td>
+					</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>

@@ -5,8 +5,7 @@
         <meta charset="utf-8">
         <title>DG - Administração</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <%= stylesheet_link_tag("9281c719.vendor.css") %>        
-        <%= stylesheet_link_tag("3fc417cd.main.css") %>        
+        <%= stylesheet_link_tag "application" %>
         
         <!--[if lt IE 9]>
           <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
@@ -81,23 +80,6 @@
 
         <a rel="to-top" href="#top"><i class="fa fa-arrow-up"></i></a>
         <footer></footer>
-     	
-     	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-     	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	    <%= javascript_include_tag "39914ff3.vendor-main.js" %>
-        <%= javascript_include_tag "756399db.vendor-usefull.js" %>
-        <%= javascript_include_tag "e7058f60.vendor-form.js" %>
-        <%= javascript_include_tag "fc9d433c.vendor-editor.js" %>
-        <!--[if lte IE 8]>
-        	<%= javascript_include_tag "eae815b5.excanvas.js" %>
-        <![endif]-->
-        <%= javascript_include_tag "2ce1156c.vendor-graph.js" %>
-        <%= javascript_include_tag "37a77790.vendor-table.js" %>
-        <%= javascript_include_tag "1581b2aa.vendor-maps.js" %>
-        <%= javascript_include_tag "5f4fd25b.vendor-util.js" %>
-        
-        
-        <%= javascript_include_tag "89c3d6c9.initializer.js" %>
+     	<%= javascript_include_tag "application" %>
     </body>
 </html>

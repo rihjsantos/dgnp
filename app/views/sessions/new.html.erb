@@ -1,21 +1,28 @@
-<%= form_for(:session, url: 'access') do |f| %>
-	<div class="row">
-		<div class="col-sm-5">
-			<div class="form-group">	
-				<label class="control-label text-inverse" for="usernameUp">E-mail</label>
-				<div class="input-group input-group-in">
-					<span class="input-group-addon text-muted">@</span><%= f.email_field :email, class: 'form-control' %>				
-				</div>
-			</div>
-			<div class="form-group">	
-				<label class="control-label text-inverse" for="usernameUp">Senha</label>
-				<div class="input-group input-group-in">
-					<span class="input-group-addon text-muted">*</span><%= f.password_field :password, class: 'form-control' %>				
-				</div>
-			</div>
-			<div class="form-group form-actions">
-				<%= f.submit "Entrar", class: "btn btn-primary" %>				
+<div class="row-fluid">
+	<div class="span4 offset4">
+		<div class="widget orange">
+			<div class="widget-title">
+            	<h4><i class="icon-reorder"></i> Acesso</h4>
+            </div>
+            <div class="widget-body">
+				<%= form_for(:session, url: 'access', :html => {:class => 'form-vertical'}) do |f| %>
+					<div class="control-group">
+						<label class="control-label">E-mail</label>
+						<div class="controls">
+							<%= f.email_field :email, class: 'span12' %>
+						</div>
+					</div>					
+					<div class="control-group">	
+						<label class="control-label">Senha</label>
+						<div class="input-group input-group-in">
+							<%= f.password_field :password, class: 'span12' %>				
+						</div>
+					</div>
+					<div class="form-actions">
+						<%= f.submit "Entrar", class: "btn btn-danger" %>				
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
-<% end %>
+</div>

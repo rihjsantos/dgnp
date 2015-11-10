@@ -1,46 +1,50 @@
-<%= form_for [:admin, @entry], html: {class: "form-horizontal form-bordered"} do |f| %> 
-	<div class="form-group">
-		<label class="col-sm-12 col-md-2 control-label">Palavra:</label>
+<%= form_for [:admin, @entry], html: {class: "form-horizontal"} do |f| %> 
+	<div class="control-group">
+		<label class="control-label">Palavra:</label>
 		<div class="col-sm-12 col-md-3">
     		<%= f.text_field :entry, class: "form-control" %>
     	</div>
 	</div>
-	<div class="form-group">
+	<div class="control-group">
 		<label class="col-sm-12 col-md-2 control-label">Descrição:</label>
 		<div class="col-sm-12 col-md-3">
 			<%= f.text_area :description, class: "form-control", size: "60x3" %>    	
     	</div>
 	</div>
-	<div class="form-group">
+	<div class="control-group">
 		<label class="col-sm-12 col-md-2 control-label">Descrição cômica:</label>
 		<div class="col-sm-12 col-md-3">
 			<%= f.text_area :description, class: "form-control", size: "60x3" %>    	
     	</div>
 	</div>
-	<div class="form-group">
+	<div class="control-group">
 		<label class="col-sm-12 col-md-2 control-label">Categoria:</label>
 		<div class="col-sm-12 col-md-3">
 			<%= f.collection_select :category, Category.order(:description), :id, :description, {}, {:'data-input' => 'select2', :class => 'form-control'} %>    	
     	</div>
 	</div>
-	<div class="form-group">
+	<div class="control-group">
 		<label class="col-sm-12 col-md-2 control-label">Foto (quadrada, please):</label>
-		<div class="col-sm-12 col-md-3">
-            <div class="fileinput fileinput-new" data-provides="fileinput">
-                <span class="btn btn-icon btn-icon-right btn-inverse btn-file">
-                    <i class="fa fa-upload"></i>
-                    <span class="fileinput-new">Selecionar arquivo</span>
-                    <span class="fileinput-exists">Alterar</span>
-                    <%= f.file_field :picture, class: "form-control", id: "fileinput_inline" %>
-                </span>
-				<span class="fileinput-filename"></span>
-				<button class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</button>
-            </div>
+		<div class="controls">
+			<div data-provides="fileupload" class="fileupload fileupload-new">
+                <div style="width: 200px; height: 150px;" class="fileupload-new thumbnail">
+                    <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=19&amp;bg=efefef&amp;txtclr=aaaaaa%26text%3Dsem%2Bimagem&amp;txt=sem+imagem&amp;w=200&amp;h=150">
+                </div>
+                <div style="max-width: 200px; max-height: 150px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail"></div>
+                <div>                	
+                   	<span class="btn btn-file">
+                   		<span class="fileupload-new">Selecionar imagem</span>
+                   		<span class="fileupload-exists">Alterar</span>
+                   		<%= f.file_field :picture, class: "default", id: "fileinput_inline" %>
+                   	</span>
+                    <a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
+                </div>
+            </div>            
     	</div>
 	</div>
-	<div class="form-group">
+	<div class="form-actions">
 		<div class="col-sm-12 col-md-offset-2">
-    		<button class="btn btn-inverse" type="submit">Salvar</button>
+    		<button class="btn btn-default" type="submit">Salvar</button>
     	</div>
   	</div> 
 <% end %>

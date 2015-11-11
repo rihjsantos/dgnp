@@ -3,8 +3,7 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
       t.string :entry
       t.text :description
-      t.text :funny_description      
-      t.text :picture
+      t.text :funny_description
       t.integer :category_id    	
       t.timestamps null: false
     end

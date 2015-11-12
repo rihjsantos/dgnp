@@ -1,30 +1,30 @@
 <%= form_for [:admin, @entry], html: {class: "form-horizontal", :multipart => true} do |f| %> 
 	<div class="control-group">
 		<label class="control-label">Palavra:</label>
-		<div class="col-sm-12 col-md-3">
-    		<%= f.text_field :entry, class: "form-control" %>
+		<div class="controls">
+    		<%= f.text_field :entry, class: "span3" %>
     	</div>
 	</div>
 	<div class="control-group">
-		<label class="col-sm-12 col-md-2 control-label">Descrição:</label>
-		<div class="col-sm-12 col-md-3">
-			<%= f.text_area :description, class: "form-control", size: "60x3" %>    	
+		<label class="control-label">Descrição:</label>
+		<div class="controls">
+			<%= f.text_area :description, class: "span3", size: "60x3" %>    	
     	</div>
 	</div>
 	<div class="control-group">
-		<label class="col-sm-12 col-md-2 control-label">Descrição cômica:</label>
-		<div class="col-sm-12 col-md-3">
-			<%= f.text_area :funny_description, class: "form-control", size: "60x3" %>    	
+		<label class="control-label">Descrição cômica:</label>
+		<div class="controls">
+			<%= f.text_area :funny_description, class: "span3", size: "60x3" %>    	
     	</div>
 	</div>
 	<div class="control-group">
-		<label class="col-sm-12 col-md-2 control-label">Categoria:</label>
-		<div class="col-sm-12 col-md-3">
-			<%= f.collection_select :category_id, Category.order(:description), :id, :description, {}, {:'data-input' => 'select2', :class => 'form-control'} %>    	
+		<label class="control-label">Categoria:</label>
+		<div class="controls">
+			<%= f.collection_select :category_id, Category.order(:description), :id, :description, {}, {:'data-input' => 'select2', :class => 'span3'} %>    	
     	</div>
 	</div>
 	<div class="control-group">
-		<label class="col-sm-12 col-md-2 control-label">Foto (quadrada, please):</label>
+		<label class="control-label">Foto (quadrada, please):</label>
 		<div class="controls">
 			<div data-provides="fileupload" class="fileupload fileupload-new">
                 <div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
@@ -46,9 +46,14 @@
             </div>            
     	</div>
 	</div>
-	<div class="form-actions">
-		<div class="col-sm-12 col-md-offset-2">
-    		<button class="btn btn-default" type="submit">Salvar</button>
+	<div class="control-group">
+		<label class="control-label">Tags:</label>
+		<div class="controls">
+			<%= f.text_field :all_tags, class: 'tags span3', id: "tags" %>
     	</div>
-  	</div> 
+	</div>
+	<div class="form-actions">
+		<button class="btn btn-default" type="submit">Salvar</button>
+	</div>
+    	
 <% end %>

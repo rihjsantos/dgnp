@@ -1,12 +1,13 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
+			<h3 class="page-title">Tags - listagem</h3>
 			<ul class="breadcrumb">
 				<li>
 					<a href="/admin">Dashboard</a>
 					<span class="divider">/</span>
 				</li>				
-				<li class="active">Palavras</li>				
+				<li class="active">Tags</li>				
 			</ul>
 		</div>
 	</div>
@@ -23,7 +24,13 @@
 					</thead>
 
 					<tbody>
-						
+						<% @tags.each do |tag| %>
+							<tr>
+								<td><a href="/admin/tags/<%= tag.id %>/edit"><%= tag.id %></a></td>
+								<td><%= tag.description %></td>						
+								<td></td>
+							</tr>
+						<% end %>
 					</tbody>
 				</table>
 			</div>

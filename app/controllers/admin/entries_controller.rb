@@ -37,6 +37,6 @@ class Admin::EntriesController < AdminController
 
 	private
 		def entry_params
-			params.require(:entry).permit(:entry, :description, :funny_description, :picture, :category_id)
+			params.require(:entry).permit(:entry, :description, :funny_description, :picture, :category_id, :all_tags)
 		end
 end

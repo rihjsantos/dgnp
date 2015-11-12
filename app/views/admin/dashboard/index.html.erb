@@ -1,9 +1,79 @@
-<div class="content-control">
-	<ul class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-home"></i> Dashboard</a></li>        
-    </ul>
-</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3 class="page-title">Dashboard</h3>
+			<ul class="breadcrumb">						
+				<li class="active">Dashboard</li>				
+			</ul>
+		</div>
+	</div>
+	<div id="page-wraper">
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="widget orange">
+					<div class="widget-title">
+                        <h4><i class="icon-bell-alt"></i> Últimas sugestões</h4>                       
+                    </div>
+                    <div class="widget-body">                  
+                    	<ul class="item-list scroller padding">
+                    		<% if @suggestions_list %>
+                    			<% @suggestions_list.each do |suggestion| %>
+                    				<li>
+										<span class="label label-default"><i class="icon-bell"></i></span>
+		                                <span>New order received.</span>
+		                                <div class="pull-right">
+		                                    <span class="small italic ">15 mins ago</span>
+										</div>
+									</li>
+                    			<% end %>
+                    		<% end %>							
+                        </ul>                 
+                    </div>
+				</div>
+			</div>
+	    	<div class="span6">
+	    		<div class="metro-nav">
+		    		<div class="metro-nav-block nav-light-blue double">
+		    			<a href="/admin/entries">
+		    				<i class="icon-comments-alt"></i>
+		    				<div class="info"><%= @entries %></div>
+		    				<div class="status">Coisas gourmets cadastradas</div>
+		    			</a>		    			
+		    		</div>
+	    		
+		    		<div class="metro-nav-block nav-block-orange">
+		    			<a href="#">
+		    				<i class="icon-bell"></i>
+		    				<div class="info"><%= @suggestions %></div>
+		    				<div class="status">Sugestões enviadas</div>
+		    			</a>		    			
+		    		</div>
 
-<div class="content-body">
+		    		<div class="metro-nav-block nav-block-yellow">
+		    			<a href="#">
+		    				<i class="icon-comments-alt"></i>
+		    				<div class="info"><%= @foods %></div>
+		    				<div class="status">Comidas</div>
+		    			</a>		    			
+		    		</div>
 
+		    		<div class="metro-nav-block nav-block-green">
+		    			<a href="#">
+		    				<i class="icon-comments-alt"></i>
+		    				<div class="info"><%= @drinks %></div>
+		    				<div class="status">Bebidas</div>
+		    			</a>		    			
+		    		</div>
+
+		    		<div class="metro-nav-block nav-light-brown">
+		    			<a href="#">
+		    				<i class="icon-comments-alt"></i>
+		    				<div class="info"><%= @desserts %></div>
+		    				<div class="status">Sobremesas</div>
+		    			</a>		    			
+		    		</div>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
 </div>

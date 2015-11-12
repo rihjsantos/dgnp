@@ -1,37 +1,39 @@
-<div class="content-control">
-	<ul class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="active">Categorias</li>
-    </ul>
-</div>
-
-<div class="content-body">
-	<div class="row">
-		<div class="col-md-12 col-xs-12">
-			<button class="btn btn-inverse" onclick="document.location.href='/admin/categories/new'">Incluir categoria</button>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3 class="page-title">Categorias - listagem</h3>
+			<ul class="breadcrumb">
+				<li>
+					<a href="/admin">Dashboard</a>
+					<span class="divider">/</span>
+				</li>				
+				<li class="active">Categorias</li>				
+			</ul>
 		</div>
 	</div>
-	<br>
+	<div id="page-wraper">
+		<div class="row-fluid">
+	    	<div class="span12">
+				<table class="datatable table table-hover table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Descrição</th>
+							<th>Ações</th>					
+						</tr>
+					</thead>
 
-	<div id="panel-datatables" class="panel panel-default">
-		<table data-source="data-sample/datatables.json" data-page="bs_four_button" class="datatable table table-hover table-bordered">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Descrição</th>
-					<th>Ações</th>					
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @categories.each do |category| %>
-					<tr>
-						<td><a href="/admin/categories/<%= category.id %>/edit"><%= category.id %></a></td>
-						<td><%= category.description %></td>						
-						<td></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+					<tbody>
+						<% @categories.each do |category| %>
+							<tr>
+								<td><a href="/admin/categories/<%= category.id %>/edit"><%= category.id %></a></td>
+								<td><%= category.description %></td>						
+								<td></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>

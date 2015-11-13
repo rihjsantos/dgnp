@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112122131) do
+ActiveRecord::Schema.define(version: 20151113181455) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151112122131) do
     t.string   "picture_content_type", limit: 255
     t.integer  "picture_file_size",    limit: 4
     t.datetime "picture_updated_at"
+    t.string   "slug",                 limit: 255
   end
 
   add_index "entries", ["category_id"], name: "fk_rails_b4563fe89e", using: :btree

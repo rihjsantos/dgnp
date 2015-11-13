@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
    # Site root
 	root 'site/site#index'
+
   # Admin root
   get 'admin' => 'admin#index'  
 
@@ -9,14 +10,18 @@ Rails.application.routes.draw do
   get 'login'   => 'sessions#new'
   post 'access'  => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
-  
-  resources :users
-  
+
+  # Admin area context
   namespace :admin do
     with_options(except: [:show]) do
       resources :categories, :entries, :tags, :suggestions
     end
   end
+
+  # front office routes (keep slug being the last one to avoid conflict with other routes)
+  get 'busca/:keyword(.:format)' => 'site/site#search'
+  get 'letra/:letter(.:format)' => 'site/site#letter'
+  get ':slug(.:format)' => 'site/site#detail'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

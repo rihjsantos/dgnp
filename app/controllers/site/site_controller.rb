@@ -6,13 +6,28 @@ class Site::SiteController < ApplicationController
 
 	# keyword search
 	def search
-		@entries = Entry.where("entries.entry like '%#{params[:keyword]}%' or entries.description like '%#{params[:keyword]}%' or entries.funny_description like '%#{params[:keyword]}%' ")
+
+		# Using redis to avoid a lot of searches in database		
+		if (entries = $redis.get(params[:keyword])).nil?
+			entries = Entry.where("entries.entry like '%#{params[:keyword]}%' or entries.description like '%#{params[:keyword]}%' or entries.funny_description like '%#{params[:keyword]}%' ")			
+			$redis.set(params[:keyword],entries)
+			$redis.expire("params[:keyword]",1.hour.to_i)
+		end
+		
+		@entries = JSON.parse(entries)
 		render "site/search"
 	end
 
 	# letter search
 	def letter
-		@entries = Entry.where("entries.entry like '#{params[:letter]}%'")
+		# Using redis to avoid a lot of searches in database		
+		if (entries = $redis.get(params[:letter])).nil?
+			entries = Entry.where("entries.entry like '#{params[:letter]}%'")
+			$redis.set(params[:letter],entries.to_json)
+			$redis.expire("params[:letter]",5.minutes.to_i)
+		end
+
+		@entries = JSON.parse(entries)
 		render "site/search"
 	end
 

@@ -1,59 +1,64 @@
-<%= form_for [:admin, @entry], html: {class: "form-horizontal", :multipart => true} do |f| %> 
+<%= form_for [:admin, @entry], html: {class: "form-horizontal", :multipart => true} do |f| %>
 	<div class="control-group">
 		<label class="control-label">Palavra:</label>
 		<div class="controls">
-    		<%= f.text_field :entry, class: "span3" %>
-    	</div>
+    			<%= f.text_field :entry, class: "span3" %>
+    			<%= @entry.errors[:entry] if @entry.errors[:entry].present? %>
+	    	</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Descrição:</label>
 		<div class="controls">
-			<%= f.text_area :description, class: "span3", size: "60x3" %>    	
-    	</div>
+	          		<%= f.text_area :description, class: "span3", size: "60x3" %>
+                 		<%= @entry.errors[:description] if @entry.errors[:description].present? %>
+    		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Descrição cômica:</label>
 		<div class="controls">
-			<%= f.text_area :funny_description, class: "span3", size: "60x3" %>    	
-    	</div>
+			<%= f.text_area :funny_description, class: "span3", size: "60x3" %>
+			<%= @entry.errors[:funny_description] if @entry.errors[:funny_description].present? %>
+    		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Categoria:</label>
 		<div class="controls">
-			<%= f.collection_select :category_id, Category.order(:description), :id, :description, {}, {:'data-input' => 'select2', :class => 'span3'} %>    	
-    	</div>
+			<%= f.collection_select :category_id, Category.order(:description), :id, :description, {}, {:'data-input' => 'select2', :class => 'span3'} %>
+    			<%= @entry.errors[:category_id] if @entry.errors[:category_id].present? %>
+    		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Foto (quadrada, please):</label>
 		<div class="controls">
 			<div data-provides="fileupload" class="fileupload fileupload-new">
-                <div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
-	                <% if @entry.picture %>
-						<%= image_tag @entry.picture.url(:small) %>
-					<% else %>
-                    	<img alt="" src="https://placeholdit.imgix.net/~text?txtsize=19&amp;bg=efefef&amp;txtclr=aaaaaa%26text%3Dsem%2Bimagem&amp;txt=sem+imagem&amp;w=200&amp;h=150">
-					<% end %>
-                </div>
-                <div style="max-width: 200px; max-height: 150px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail"></div>
-                <div>                	
-                   	<span class="btn btn-file">
-                   		<span class="fileupload-new">Selecionar imagem</span>
-                   		<span class="fileupload-exists">Alterar</span>
-                   		<%= f.file_field :picture, class: "default", id: "fileinput_inline" %>
-                   	</span>
-                    <a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
-                </div>
-            </div>            
-    	</div>
+        				<div style="width: 150px; height: 150px;" class="fileupload-new thumbnail">
+       					<% if @entry.picture %>
+					<%= image_tag @entry.picture.url(:small)%>
+				<% else %>
+    					<img alt="" src="https://placeholdit.imgix.net/~text?txtsize=19&amp;bg=efefef&amp;txtclr=aaaaaa%26text%3Dsem%2Bimagem&amp;txt=sem+imagem&amp;w=200&amp;h=150">
+				<% end %>
+            				</div>
+		            		<div style="max-width: 200px; max-height: 150px; line-height: 20px;" class="fileupload-preview fileupload-exists thumbnail"></div>
+		                	<div>
+			                   	<span class="btn btn-file">
+			                   		<span class="fileupload-new">Selecionar imagem</span>
+			                   		<span class="fileupload-exists">Alterar</span>
+			               		<%= f.file_field :picture, class: "default", id: "fileinput_inline" %>
+			               		<%= @entry.errors[:picture] if @entry.errors[:picture].present? %>
+			                   	</span>
+			                    	<a data-dismiss="fileupload" class="btn fileupload-exists" href="#">Remover</a>
+		            	</div>
+		        	</div>
+		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label">Tags:</label>
 		<div class="controls">
 			<%= f.text_field :all_tags, class: 'tags span3', id: "tags" %>
-    	</div>
+			<%= @entry.errors[:all_tags] if @entry.errors[:all_tags].present? %>
+    		</div>
 	</div>
 	<div class="form-actions">
 		<button class="btn btn-default" type="submit">Salvar</button>
 	</div>
-    	
 <% end %>

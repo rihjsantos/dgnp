@@ -5,6 +5,11 @@ class Entry < ActiveRecord::Base
 	has_many :tags, through: :taggings
 	accepts_nested_attributes_for :category
 
+	#validations
+	validates :entry, length: { maximum: 255 }
+	validates :picture_file_name, length: { maximum: 255 }
+	validates :picture_content_type, length: { maximum: 255 }
+
 	# picture manipulation
 	has_attached_file :picture, :styles => { :small => "150x150>" },
 		:url  => "/assets/products/:id/:style/:basename.:extension",

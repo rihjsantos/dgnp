@@ -1,22 +1,22 @@
 class Admin::TagsController < AdminController
-	def index		
+	def index
 		@tags = Tag.all
 		render 'admin/tags/index'
 	end
 
-	def new		
+	def new
 		@tag = Tag.new
 		render 'admin/tags/new'
 	end
 
 	def create
-	    @tag = Tag.new(tag_params)
-		 
+		@tag = Tag.new(tag_params)
+
 		if @tag.save
 			redirect_to :controller => 'admin/tags', :action => 'index'
-	    else
+		else
 			flash.now[:notice] = "Erro"
-	    	render 'new'
+			render 'new'
 		end
 	end
 
@@ -41,7 +41,7 @@ class Admin::TagsController < AdminController
 
 		redirect_to 'admin/tags'
 	end
- 
+
 	private
 		def tag_params
 			params.require(:tag).permit(:description)

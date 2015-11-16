@@ -27,6 +27,7 @@ gem 'mysql2', '~> 0.3.13'
 gem 'bcrypt'
 gem 'rack', '~> 1.6', '>= 1.6.4'
 gem 'paperclip'
+gem 'rails-i18n', '~> 4.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

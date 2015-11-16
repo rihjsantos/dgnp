@@ -7,7 +7,7 @@
         <meta charset="utf-8" />
         <title>DG - Administração</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="description" />       
+        <meta content="" name="description" />
         <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
         <link href="/assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
@@ -27,7 +27,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/bootstrap-timepicker/compiled/timepicker.css" />
         <link rel="stylesheet" type="text/css" href="/assets/bootstrap-colorpicker/css/colorpicker.css" />
         <link rel="stylesheet" href="/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/bootstrap-daterangepicker/daterangepicker.css" />       
+        <link rel="stylesheet" type="text/css" href="/assets/bootstrap-daterangepicker/daterangepicker.css" />
 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="arrow"></span>                    </a>
                     <div class="top-nav ">
-                        <ul class="nav pull-right top-menu" >                            
+                        <ul class="nav pull-right top-menu" >
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="/img/avatar1_small.jpg" alt="">
@@ -63,7 +63,7 @@
         </div>
         <div id="container" class="row-fluid">
             <div class="sidebar-scroll">
-                <div id="sidebar" class="nav-collapse collapse">                    
+                <div id="sidebar" class="nav-collapse collapse">
                     <ul class="sidebar-menu">
                         <li class="sub-menu active">
                             <a class="" href="/admin">
@@ -79,8 +79,11 @@
                             </a>
                             <ul class="sub">
                                 <li><a class="" href="/admin/categories">Categorias</a></li>
+                                <li><a class="" href="/admin/categories/new">Nova Categoria</a></li>
                                 <li><a class="" href="/admin/tags">Tags</a></li>
-                                <li><a class="" href="/admin/entries">Palavras</a></li>                                
+                                <li><a class="" href="/admin/tags/new">Nova Tag</a></li>
+                                <li><a class="" href="/admin/entries">Palavras</a></li>
+                                <li><a class="" href="/admin/entries/new">Nova Palavra</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -90,7 +93,7 @@
                 <%= yield %>
             </div>
         </div>
-        
+
         <footer></footer>
 
         <script src="/js/jquery-1.8.2.min.js"></script>
@@ -141,7 +144,7 @@
 
                 $('#tags').tagsInput({
                     'defaultText' : 'senta o dedo'
-                }); 
+                });
 
            });
 
